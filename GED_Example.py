@@ -21,6 +21,7 @@ def main():
     gr1 = Graph('gr1', 'gr1.gxl', n_nodes1)
     gr2 = Graph('gr2', 'gr2.gxl', n_nodes2)
 
+
     for i in range(n_nodes1):
         tmp_node = Node(i, LabelNodeVector(np.array([i, 1.])))
         gr1.add_node(tmp_node)
