@@ -19,16 +19,20 @@ def main():
     k = 2                       # Nr of iterations (WL-Algorithm)
     for grX in range(3):        # grX: nr of graphs to be read in (from Enzymes Dataset)
 
-        graph = nx.read_graphml('/home/raphaeldegottardi/BachelorThesis/Enzymes/data/gr_'+ str(grX)+ '.graphml')
-        graph_hashes_list = nx.weisfeiler_lehman_subgraph_hashes(graph, iterations=k, digest_size=8)
+        graph = nx.read_graphml(f'./Enzymes/data/gr_{str(grX)}.graphml')
+        graph_hashes_list = nx.weisfeiler_lehman_subgraph_hashes(graph,
+                                                                iterations=k,
+                                                                digest_size=8)
 
         for iteration_k in range(k): 
     
             for node_index in graph.nodes:
                 graph.nodes[node_index]['hash'] = str(graph_hashes_list[node_index][iteration_k])
 
-            graph.graph['WL_iteration'] = iteration_k+1
-            nx.write_graphml( graph , '/home/raphaeldegottardi/BachelorThesis/MyCode/HashedGraphs_P/gr'+str(grX)+'_hashed_'+str(iteration_k+1)+'.graphml')
+            graph.graph['WL_iteration'] = iteration_k + 1
+            nx.write_graphml(
+                graph, 
+                f'./MyCode/HashedGraphs_P/gr{str(grX)}_hashed_{str(iteration_k+1)}.graphml')
 
 
 if __name__ == "__main__":
