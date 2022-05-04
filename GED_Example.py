@@ -20,15 +20,18 @@ def main():
     n_nodes1 = 5
     n_nodes2 = 6
 
-    loader_vector = LoaderVector('/home/raphaeldegottardi/BachelorThesis/MyCode/HashedGraphs_P', use_wl_attr=True)
+    loader_vector = LoaderVector('./MyCode/HashedGraphs_P/gr_0/hash', use_wl_attr=True)
+
+    #Keep getting Exceptions and ampty graphs when trying to load normal graphs!
+    #loader_vector = LoaderVector('./Enzymes/data', use_wl_attr=False)
     graphs = loader_vector.load()
+    print(graphs[0])
     print(graphs[1])
-    print(graphs[2])
 
 
-    ged = GED(EditCostVector(1., 1., 1., 1., 'euclidean', use_wl_attr=True))  # EditCostVector takes weights as an input
+    ged = GED(EditCostVector(1., 1., 1., 1., 'euclidean', use_wl_attr=True))  # EditCostVector takes weights (of cost function) as an input
 
-    cost = ged.compute_edit_distance(graphs[1], graphs[2], heuristic=True)
+    cost = ged.compute_edit_distance(graphs[0], graphs[1], heuristic=True)
 
     print(cost)
 
