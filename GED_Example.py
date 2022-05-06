@@ -22,8 +22,6 @@ def main():
 
     loader_vector = LoaderVector('./MyCode/HashedGraphs_P/gr_0/hash', use_wl_attr=True)
 
-    #Keep getting Exceptions and ampty graphs when trying to load normal graphs!
-    #loader_vector = LoaderVector('./Enzymes/data', use_wl_attr=False)
     graphs = loader_vector.load()
     print(graphs[0])
     print(graphs[1])
@@ -33,7 +31,7 @@ def main():
 
     cost = ged.compute_edit_distance(graphs[0], graphs[1], heuristic=True)
 
-    print(cost)
+    print(f'The ged cost for the selected graphs is: {cost}')
 
 
 if __name__ == "__main__":

@@ -28,7 +28,6 @@ def main():
                                                                 iterations=k,
                                                                digest_size=8)
         #create folders to stor the Calculated graphs in    
-        # ! issue: loader does not load in order, thus the iterations are hard to address                                                
         try:
             os.mkdir(f'./MyCode/HashedGraphs_P/gr_{str(grX)}')   
             os.mkdir(f'./MyCode/HashedGraphs_P/gr_{str(grX)}/hash')    
@@ -74,9 +73,9 @@ def main():
     graphX = loader_vectorX_hash.load()
     graphY = loader_vectorY_hash.load()   
 
-
+    alpha = 0.1  #weight for how much the ged shoud be aughmented (by hash values)
     for iteration_k in range(k):
-        cost += ged_hash.compute_edit_distance(graphX[iteration_k],graphY[iteration_k], heuristic=True)
+        cost += alpha*ged_hash.compute_edit_distance(graphX[iteration_k],graphY[iteration_k], heuristic=True)
         
     print(f'ged with WL: {cost}')
 
