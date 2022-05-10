@@ -19,7 +19,7 @@ from graph_pkg_core.loader.loader_vector import LoaderVector
 
 
 def main():
-    #shutil.rmtree(r'./MyCode/WL_graphs')
+    shutil.rmtree(r'./MyCode/WL_graphs')
 
     k = 4                       # Nr of iterations (WL-Algorithm)
     nr_of_graphs = 5           # from Enzymes dataset
@@ -39,17 +39,20 @@ def main():
                                                                digest_size=8)
       
         for node_index in graph.nodes:
-            graph.nodes[node_index]['hash'] = str(graph_hashes_list[node_index])
+            vector_label = str(graph.nodes[node_index]['x'])
+            graph_hashes_list[node_index].insert(0,vector_label)
+            graph.nodes[node_index]['hashes'] = str(graph_hashes_list[node_index])
     
         nx.write_graphml(
             graph, 
             f'./MyCode/WL_graphs/gr_{str(grX)}.graphml')
 
+
     #Loading the Graphs
 
     graph_list = []
 
-    loader_vector = LoaderVector(f'./MyCode/WL_graphs')    
+    loader_vector = LoaderVector(f'./MyCode/WL_graphs', use_wl_attr=True)    
     original_graphs = loader_vector.load()
 
     #calculate GED: first normal, then add the distance of the hashed graphs
@@ -57,14 +60,11 @@ def main():
     X = 0
     Y = 1
 
-    ged_hash = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k=2))
+    ged_hash = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k=1))
 
     cost = ged_hash.compute_edit_distance(original_graphs[X],original_graphs[Y], heuristic=True)
-
     print(f'ged with WL: {cost}') 
      
-
-    shutil.rmtree(r'./MyCode/WL_augmented_graphs')
 
 if __name__ == "__main__":
     main()
