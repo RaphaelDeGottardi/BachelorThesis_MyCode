@@ -22,7 +22,7 @@ def main():
     shutil.rmtree(r'./MyCode/WL_graphs')
 
     k = 4                       # Nr of iterations (WL-Algorithm)
-    nr_of_graphs = 5           # from Enzymes dataset
+    nr_of_graphs = 5           # from Enzymes dataset max 
 
     #Create folders for the calculated (hash-augmented) graphs
     try:
@@ -36,7 +36,7 @@ def main():
         graph = nx.read_graphml(f'./Enzymes/data/gr_{str(grX)}.graphml')
         graph_hashes_list = nx.weisfeiler_lehman_subgraph_hashes(graph,
                                                                 iterations=k,
-                                                               digest_size=8)
+                                                                digest_size=8)
       
         for node_index in graph.nodes:
             vector_label = str(graph.nodes[node_index]['x'])
@@ -52,17 +52,17 @@ def main():
 
     graph_list = []
 
-    loader_vector = LoaderVector(f'./MyCode/WL_graphs', use_wl_attr=True)    
-    original_graphs = loader_vector.load()
+    loader_vector = LoaderVector(f'./MyCode/WL_graphs', use_wl_attr=True)     
+    WL_graph_list = loader_vector.load()
 
     #calculate GED: first normal, then add the distance of the hashed graphs
     #Graph index of the ones to compare (if X=Y -> ged=0)
     X = 0
     Y = 1
 
-    ged_hash = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k=1))
+    ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = k))
 
-    cost = ged_hash.compute_edit_distance(original_graphs[X],original_graphs[Y], heuristic=True)
+    cost = ged_WL.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
     print(f'ged with WL: {cost}') 
      
 
