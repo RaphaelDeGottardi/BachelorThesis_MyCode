@@ -16,6 +16,7 @@ from graph_pkg_core.graph.label.label_node_vector import LabelNodeVector
 from graph_pkg_core.graph.node import Node
 from graph_pkg_core.loader.loader_vector import LoaderVector
 from graph_pkg_core.coordinator.coordinator_vector import CoordinatorVector
+from graph_pkg_core.coordinator.coordinator_vector_classifier import CoordinatorVectorClassifier
 
 
 
@@ -55,10 +56,15 @@ def main():
     #Loading the Graphs
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs')
-    coordinator = CoordinatorVector('enzymes',
+    #coordinator = CoordinatorVector('enzymes', (1., 1., 1., 1., 'euclidean', k),FOLDER_DATA,True)
+    
+    classifier = CoordinatorVectorClassifier('enzymes',
                                     (1., 1., 1., 1., 'euclidean', k),
-                                    FOLDER_DATA,True)
-     
+                                    FOLDER_DATA,None,True)
+
+    
+    X_train, y_train = getattr(classifier, 'train_split')()
+    print()
 
 if __name__ == "__main__":
     main()
