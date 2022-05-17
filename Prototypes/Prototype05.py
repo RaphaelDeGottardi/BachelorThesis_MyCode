@@ -65,18 +65,9 @@ def main():
 
     
     X_train, y_train = getattr(classifier, 'train_split')()
-    #run it in paralell ( faster), numcores = 6 ( up to 8)
-    #use the MatrixDistances Class and the calc_matr_dist (X_train, X_train)
-
     X_test, y_test = getattr(classifier, 'test_split')()
     X_validation, y_validation = getattr(classifier, 'val_split')()
     print()
-
-
-    #knn
-    #use train() on X_train
-    #use predict() in X_val
-    #compare using utils.functions.helper import calc_accuracy
 
 if __name__ == "__main__":
     main()
