@@ -35,6 +35,7 @@ def main():
 
     #Loading the vectors and calculating their hash-values
     compute_hashed_graphs = False
+
     if compute_hashed_graphs==True:
         for grX in range(nr_of_graphs):        
 
@@ -54,17 +55,28 @@ def main():
 
 
     #Loading the Graphs
+
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs')
-    #coordinator = CoordinatorVector('enzymes', (1., 1., 1., 1., 'euclidean', k),FOLDER_DATA,True)
-    
+    #coordinator = CoordinatorVector('enzymes', (1., 1., 1., 1., 'euclidean', k),FOLDER_DATA,True) 
     classifier = CoordinatorVectorClassifier('enzymes',
                                     (1., 1., 1., 1., 'euclidean', k),
                                     FOLDER_DATA,None,True)
 
     
     X_train, y_train = getattr(classifier, 'train_split')()
+    #run it in paralell ( faster), numcores = 6 ( up to 8)
+    #use the MatrixDistances Class and the calc_matr_dist (X_train, X_train)
+
+    X_test, y_test = getattr(classifier, 'test_split')()
+    X_validation, y_validation = getattr(classifier, 'val_split')()
     print()
+
+
+    #knn
+    #use train() on X_train
+    #use predict() in X_val
+    #compare using utils.functions.helper import calc_accuracy
 
 if __name__ == "__main__":
     main()
