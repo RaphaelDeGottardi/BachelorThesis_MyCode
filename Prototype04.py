@@ -24,7 +24,7 @@ def main():
     use_original_ged = False
     k = 0          #do not modify            
     if not use_original_ged:
-        k = 3                   # Nr of iterations (WL-Algorithm)
+        k = 2                   # Nr of iterations (WL-Algorithm)
     nr_of_graphs = 5            # from Enzymes dataset max 
 
     #Create folders for the calculated (hash-augmented) graphs
@@ -66,8 +66,8 @@ def main():
 
     #calculate GED: first normal, then add the distance of the hashed graphs
     #Graph index of the ones to compare (if X=Y -> ged=0)
-    X = 2
-    Y = 3
+    X = 0
+    Y = 1
     if use_original_ged:
         ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean'))
     else:

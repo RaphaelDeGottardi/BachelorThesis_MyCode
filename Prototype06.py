@@ -5,13 +5,17 @@ import numpy as np
 import networkx as nx
 import shutil
 
+
+
+from graph_pkg_core.algorithm.graph_edit_distance import GED
+from graph_pkg_core.edit_cost.edit_cost_vector import EditCostVector
 from graph_pkg_core.coordinator.coordinator_vector_classifier import CoordinatorVectorClassifier
 from graph_pkg_core.algorithm.matrix_distances import MatrixDistances
 
 
 def main():
 
-    k = 2                       # Nr of iterations (WL-Algorithm)
+    k = 1                        # Nr of iterations (WL-Algorithm)
     nr_of_graphs = 600           # from Enzymes dataset max 
 
     #Loading the vectors and calculating their hash-values
@@ -48,18 +52,18 @@ def main():
                            'WL_graphs')
     #coordinator = CoordinatorVector('enzymes', (1., 1., 1., 1., 'euclidean', k),FOLDER_DATA,True) 
     classifier = CoordinatorVectorClassifier('enzymes',
-                                    (1., 1., 1., 1., 'euclidean', k),
-                                    FOLDER_DATA,None,True)
-
-    
+                                    (1., 1., 1., 1., 'euclidean', k, 0.8),
+                                    FOLDER_DATA,None,True,False)
+   
     X_train, y_train = getattr(classifier, 'train_split')()
 
-    #run it in paralell ( faster), numcores = 6 ( up to 8)
+    #run it in paralell ( faster), num_cores = 6 ( up to 8)
     #use the MatrixDistances Class and the calc_matr_dist (X_train, X_train)
-    matrix_dist = MatrixDistances(classifier.ged,
-                               parallel= True)
 
-    dist = matrix_dist.calc_matrix_distances(X_train, X_train, heuristic=True)
+    matrix_dist = MatrixDistances(classifier.ged,
+                               parallel = True)
+    dist = matrix_dist.calc_matrix_distances(X_train, X_train, heuristic=True, num_cores=6)
+
 
     X_test, y_test = getattr(classifier, 'test_split')()
     X_validation, y_validation = getattr(classifier, 'val_split')()
