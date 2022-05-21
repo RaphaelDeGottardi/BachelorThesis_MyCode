@@ -1,4 +1,5 @@
 from itertools import combinations
+from time import time
 
 import os
 import numpy as np
@@ -7,15 +8,14 @@ import shutil
 
 
 
-from graph_pkg_core.algorithm.graph_edit_distance import GED
-from graph_pkg_core.edit_cost.edit_cost_vector import EditCostVector
 from graph_pkg_core.coordinator.coordinator_vector_classifier import CoordinatorVectorClassifier
-from graph_pkg_core.algorithm.matrix_distances import MatrixDistances
+from graph_pkg_core.algorithm.knn import KNNClassifier
+from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 
 def main():
 
-    k = 0                        # Nr of iterations (WL-Algorithm)
+    k = 2                        # Nr of iterations (WL-Algorithm)
     nr_of_graphs = 600           # from Enzymes dataset max 
 
     #Loading the vectors and calculating their hash-values
@@ -51,29 +51,32 @@ def main():
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs')
     #coordinator = CoordinatorVector('enzymes', (1., 1., 1., 1., 'euclidean', k),FOLDER_DATA,True) 
-    classifier = CoordinatorVectorClassifier('enzymes',
-                                    (1., 1., 1., 1., 'euclidean', k, 0.8),
+    coordinator = CoordinatorVectorClassifier('enzymes',
+                                    (1., 1., 1., 1., 'euclidean', k),
                                     FOLDER_DATA,None,True,False)
    
-    X_train, y_train = getattr(classifier, 'train_split')()
-
-    #run it in paralell ( faster), num_cores = 6 ( up to 8)
-    #use the MatrixDistances Class and the calc_matr_dist (X_train, X_train)
-
-    matrix_dist = MatrixDistances(classifier.ged,
-                               parallel = False)
-    dist = matrix_dist.calc_matrix_distances(X_train, X_train, heuristic=True, num_cores=6)
-
-
-    X_test, y_test = getattr(classifier, 'test_split')()
-    X_validation, y_validation = getattr(classifier, 'val_split')()
-    print()
-
-
+    X_train, y_train = getattr(coordinator, 'train_split')()
+    X_test, y_test = getattr(coordinator, 'test_split')()
+    #X_validation, y_validation = getattr(coordinator, 'val_split')()
+    
     #knn
     #use train() on X_train
     #use predict() in X_val
     #compare using utils.functions.helper import calc_accuracy
+    #link to knn github: https://github.com/CheshireCat12/graph-matching-gnn-reduction/blob/master/knn/run_knn.pyx
+
+    knn = KNNClassifier(coordinator.ged, False, verbose=False)
+    knn.train(graphs_train=X_train, labels_train=y_train)
+
+    start_time = time()
+    predictions = knn.predict(X_test, k=3, num_cores=6)
+    prediction_time = time() - start_time
+    acc = calc_accuracy(np.array(y_test, dtype=np.int32),
+                        np.array(predictions, dtype=np.int32))
+
+    message = f'Best acc on Test : {acc:.2f}, time: {prediction_time:.2f}s\n'
+
+    print(message)
 
 if __name__ == "__main__":
     main()
