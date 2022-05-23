@@ -6,7 +6,7 @@ import numpy as np
 import networkx as nx
 import shutil
 
-
+#prototype to test the kNN classification aughmented with the WL-hashes
 
 from graph_pkg_core.coordinator.coordinator_vector_classifier import CoordinatorVectorClassifier
 from graph_pkg_core.algorithm.knn import KNNClassifier
@@ -15,13 +15,12 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 def main():
 
-    k = 2                        # Nr of iterations (WL-Algorithm)
+    k = 1                       # Nr of iterations (WL-Algorithm)
     nr_of_graphs = 600           # from Enzymes dataset max 
 
     #Loading the vectors and calculating their hash-values
     #remember to re-include the train test and val list files when having deleted it
     compute_hashed_graphs = False
-
     if compute_hashed_graphs:
         shutil.rmtree(r'./MyCode/WL_graphs')
             #Create folders for the calculated (hash-augmented) graphs ( after deleting the old ones)
@@ -50,10 +49,11 @@ def main():
 
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs')
-    #coordinator = CoordinatorVector('enzymes', (1., 1., 1., 1., 'euclidean', k),FOLDER_DATA,True) 
+
     coordinator = CoordinatorVectorClassifier('enzymes',
-                                    (1., 1., 1., 1., 'euclidean', k),
+                                    (1., 1., 1., 1., 'euclidean',k),
                                     FOLDER_DATA,None,True,False)
+
    
     X_train, y_train = getattr(coordinator, 'train_split')()
     X_test, y_test = getattr(coordinator, 'test_split')()
@@ -65,7 +65,7 @@ def main():
     #compare using utils.functions.helper import calc_accuracy
     #link to knn github: https://github.com/CheshireCat12/graph-matching-gnn-reduction/blob/master/knn/run_knn.pyx
 
-    knn = KNNClassifier(coordinator.ged, False, verbose=False)
+    knn = KNNClassifier(coordinator.ged, True, verbose=False)
     knn.train(graphs_train=X_train, labels_train=y_train)
 
     start_time = time()

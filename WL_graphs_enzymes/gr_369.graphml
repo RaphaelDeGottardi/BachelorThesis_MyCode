@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d1" for="node" attr.name="hashes" attr.type="string" />
+  <key id="d0" for="node" attr.name="x" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="0">
+      <data key="d0">[1.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0]', '9922c70b10883661', '76c0b6688552754e', 'f2b0b3b84b10f1da', '2f589c0f125dd91b', 'aab595fbf16b8ec2']</data>
+    </node>
+    <node id="1">
+      <data key="d0">[1.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0]', '9922c70b10883661', '76c0b6688552754e', 'f2b0b3b84b10f1da', '2f589c0f125dd91b', 'aab595fbf16b8ec2']</data>
+    </node>
+    <node id="2">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '28576e55c2ea1d57', 'b7104063a8251df5', '6d807d498072cd67', '8168f3395586e9e1', 'b84ce5f233c8ffa3']</data>
+    </node>
+    <node id="3">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', 'd8d8b2e7a019fc0f', '24081fd12e04b145', '413ba8951d57c136', '4dde6a8f9c67c37f', '8455c93a08817259']</data>
+    </node>
+    <node id="4">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '429b6cfc1ae44f8f', '39b0e8a6388db784', '189c26088db55c7a', 'f44036c92dc600a2', '84f04555fe79173d']</data>
+    </node>
+    <node id="5">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '28576e55c2ea1d57', 'bd83602f28794fbc', 'c230c14eb4dd7906', 'f0164f7aece464ab', '8d86e7ac599da2d7']</data>
+    </node>
+    <node id="6">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '1ce66d2efdfc2c6c', 'f57a8d529ef30646', '9aae4d0569f4c476', '1aca059c6631f598', '3a831fff2ef3bfdb']</data>
+    </node>
+    <node id="7">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '28576e55c2ea1d57', 'b7104063a8251df5', '6d807d498072cd67', '8168f3395586e9e1', 'b84ce5f233c8ffa3']</data>
+    </node>
+    <node id="8">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', 'd8d8b2e7a019fc0f', '24081fd12e04b145', '413ba8951d57c136', '4dde6a8f9c67c37f', '8455c93a08817259']</data>
+    </node>
+    <node id="9">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '429b6cfc1ae44f8f', '39b0e8a6388db784', '189c26088db55c7a', 'f44036c92dc600a2', '84f04555fe79173d']</data>
+    </node>
+    <node id="10">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '28576e55c2ea1d57', 'bd83602f28794fbc', 'c230c14eb4dd7906', 'f0164f7aece464ab', '8d86e7ac599da2d7']</data>
+    </node>
+    <node id="11">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '1ce66d2efdfc2c6c', 'f57a8d529ef30646', '9aae4d0569f4c476', '1aca059c6631f598', '3a831fff2ef3bfdb']</data>
+    </node>
+    <edge source="0" target="1" />
+    <edge source="0" target="2" />
+    <edge source="0" target="6" />
+    <edge source="0" target="7" />
+    <edge source="1" target="2" />
+    <edge source="1" target="7" />
+    <edge source="1" target="11" />
+    <edge source="2" target="6" />
+    <edge source="2" target="11" />
+    <edge source="3" target="4" />
+    <edge source="3" target="9" />
+    <edge source="4" target="5" />
+    <edge source="4" target="8" />
+    <edge source="4" target="10" />
+    <edge source="5" target="6" />
+    <edge source="5" target="9" />
+    <edge source="5" target="11" />
+    <edge source="6" target="7" />
+    <edge source="6" target="10" />
+    <edge source="6" target="11" />
+    <edge source="7" target="11" />
+    <edge source="8" target="9" />
+    <edge source="9" target="10" />
+    <edge source="10" target="11" />
+  </graph>
+</graphml>
