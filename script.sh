@@ -10,15 +10,15 @@
 #SBATCH --array=1
 
 
-param_store=$HOME/args.txt
+#param_store=$HOME/args.txt
 
 # Get first argument
-dataset=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $1}')
+#dataset=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $1}')
 
 # Put your code below this line
-module load Python/3.9
-cd $HOME/graph_matching/graph-matching-gnn-reduction
-source venv/bin/activate
+#module load Python/3.9
+#cd $HOME/graph_matching/graph-matching-gnn-reduction
+#source venv/bin/activate
 
-srun python main.py --dataset $dataset
+srun python main.py #--dataset $dataset
 
