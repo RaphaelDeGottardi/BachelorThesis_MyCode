@@ -5,6 +5,7 @@ import os
 import numpy as np
 import networkx as nx
 import shutil
+import itertools
 
 #prototype to test the kNN classification aughmented with the WL-hashes
 
@@ -15,34 +16,37 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 def main():
 
-    wl_k = 0                       # Nr of iterations (WL-Algorithm)
-
     #Loading the Graphs
 
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
-                           'WL_graphs')
+                           'WL_graphs_enzymes')
 
-    coordinator = CoordinatorVectorClassifier('enzymes',
-                                    (1., 1., 1., 1., 'euclidean',wl_k),
-                                    FOLDER_DATA,None,True,False)
+    wl_k = 3 #for WL algorithm
 
-   
-    X_train, y_train = getattr(coordinator, 'train_split')()
-    X_test, y_test = getattr(coordinator, 'test_split')()
-    X_validation, y_validation = getattr(coordinator, 'val_split')()
+    weights = list(itertools.product([0,0.1,0.2,0.3], repeat=3))
+    for weight in weights:
+        print(f'weights: {weight}')
+        coordinator = CoordinatorVectorClassifier('enzymes',
+                                        (1., 1., 1., 1., 'euclidean',wl_k,[weight[0],weight[1],weight[2]]),
+                                        FOLDER_DATA,None,True,False)
+
     
-    knn = KNNClassifier(coordinator.ged, True, verbose=False)
-    knn.train(graphs_train=X_train, labels_train=y_train)
+        X_train, y_train = getattr(coordinator, 'train_split')()
+        #X_test, y_test = getattr(coordinator, 'test_split')()
+        X_validation, y_validation = getattr(coordinator, 'val_split')()
+        
+        knn = KNNClassifier(coordinator.ged, True, verbose=False)
+        knn.train(graphs_train=X_train, labels_train=y_train)
 
-    start_time = time()
-    predictions = knn.predict(X_test, k=3, num_cores=6)
-    prediction_time = time() - start_time
-    acc = calc_accuracy(np.array(y_test, dtype=np.int32),
-                        np.array(predictions, dtype=np.int32))
+        start_time = time()
+        predictions = knn.predict(X_validation, k=3, num_cores=6)
+        prediction_time = time() - start_time
+        acc = calc_accuracy(np.array(y_validation, dtype=np.int32),
+                            np.array(predictions, dtype=np.int32))
 
-    message = f'Best acc on Test : {acc:.2f}, time: {prediction_time:.2f}s\n'
+        message = f'Best acc on Test : {acc:.2f}, time: {prediction_time:.2f}s\n'
 
-    print(message)
+        print(message)
 
 if __name__ == "__main__":
     main()

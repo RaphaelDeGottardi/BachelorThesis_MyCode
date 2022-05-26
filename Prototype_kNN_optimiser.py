@@ -14,7 +14,7 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 
 def main():
-    for wl_k in range(1,6):
+    for wl_k in range(2,3):
         
         print(f'These are the k (for kNN classification) values for wl-hashes of iteration {wl_k}')
         #Loading the Graphs
@@ -23,7 +23,7 @@ def main():
                             'WL_graphs_enzymes')
 
         coordinator = CoordinatorVectorClassifier('enzymes',
-                                        (1., 1., 1., 1., 'euclidean',wl_k),
+                                        (1., 1., 1., 1., 'euclidean',wl_k,[0,0]),
                                         FOLDER_DATA,None,True,False)
 
     
@@ -34,7 +34,7 @@ def main():
         knn = KNNClassifier(coordinator.ged, True, verbose=False)
         knn.train(graphs_train=X_train, labels_train=y_train)
 
-        for k in range(1,8,2):
+        for k in range(1,4,2):
             start_time = time()
             print(f'started the predictions for k={k}')
             predictions = knn.predict(X_validation, k=k, num_cores=6)
@@ -46,4 +46,8 @@ def main():
 
 
 if __name__ == "__main__":
+#create parser here
+
+
+
     main()

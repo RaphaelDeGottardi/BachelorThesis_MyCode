@@ -15,13 +15,23 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 def main():
 
-    k = 5                       # Nr of iterations (WL-Algorithm)
+    k = 10                       # Nr of iterations (WL-Algorithm)
     nr_of_graphs = 600          
 
-    #Loading the vectors and calculating their hash-values
     #remember to re-include the train test and val list files when having deleted it
+    delete_old_graphs = False
+    if delete_old_graphs:
+        shutil.rmtree(r'./MyCode/WL_graphs_enzymes')
+        try:
+            os.mkdir(f'./MyCode/WL_graphs_enzymes') 
+        except OSError as e:
+            True 
 
-    for grX in range(nr_of_graphs):        
+
+    #Loading the vectors and calculating their hash-values        
+    for grX in range(nr_of_graphs):  
+        
+        print(f'graph nr. {grX} has been created')
 
         graph = nx.read_graphml(f'./Enzymes/data/gr_{str(grX)}.graphml')
         graph_hashes_list = nx.weisfeiler_lehman_subgraph_hashes(graph,
@@ -35,7 +45,7 @@ def main():
     
         nx.write_graphml(
             graph, 
-            f'./MyCode/WL_graphs/gr_{str(grX)}.graphml')
+            f'./MyCode/WL_graphs_enzymes/gr_{str(grX)}.graphml')
 
 
 if __name__ == "__main__":
