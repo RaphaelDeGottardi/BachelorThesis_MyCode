@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#SBATCH --mail-user=
-#SBATCH --mail-type=end,fail
+SBATCH --mail-user= raphael.degottardi@students.unibe.ch
+SBATCH --mail-type=end,fail
 
-#SBATCH --mem-per-cpu=16G
-#SBATCH --cpus-per-task=8
-#SBATCH --time=0-02:00:00
-#SBATCH --output=./slurms/test_with_preds_%A_%a.out
-#SBATCH --array=1
+SBATCH --mem-per-cpu=16G
+SBATCH --cpus-per-task=6
+SBATCH --time=0-01:00:00
+SBATCH --output=./slurms/test_with_preds_%A_%a.out
+SBATCH --array=0
 
 
 #param_store=$HOME/args.txt
@@ -20,5 +20,5 @@
 #cd $HOME/graph_matching/graph-matching-gnn-reduction
 #source venv/bin/activate
 
-srun python main.py #--dataset $dataset
+srun python Protoype_script.py #--dataset $dataset
 
