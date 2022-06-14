@@ -23,7 +23,8 @@ def main():
 
     wl_k = 3 #for WL algorithm
 
-    weights = list(itertools.product([0,0.1,0.2,0.3], repeat=3))
+    #weights = list(itertools.product([0,0.1,0.2,0.3], repeat=3))
+    weights = [[1/2,1/4,1/8],[1/4,1/8,1/16],[1/8,1/16,1/32],[1/2,1/4,1/4],[2/3,1/6,1/6],[1/3,1/3,1/3],[1/3,1/3,1/31],]
     for weight in weights:
         print(f'weights: {weight}')
         coordinator = CoordinatorVectorClassifier('enzymes',
