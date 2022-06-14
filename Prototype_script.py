@@ -21,7 +21,7 @@ def main():
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs_enzymes')
 
-    wl_k = 1 #for WL algorithm
+    wl_k = 3 #for WL algorithm
 
     weights = list(itertools.product([0,0.1,0.2,0.3], repeat=3))
     add_weights = [[1/8,0,0],[1/4,1/8,1/16],[1/8,1/16,1/32],[1/2,1/4,1/4],[2/3,1/6,1/6],[1/3,1/3,1/3],[1/3,1/3,1/31]]
@@ -42,7 +42,7 @@ def main():
         knn.train(graphs_train=X_train, labels_train=y_train)
 
         start_time = time()
-        predictions = knn.predict(X_validation, k=3, num_cores=6)
+        predictions = knn.predict(X_validation, k=1, num_cores=8)
         prediction_time = time() - start_time
         acc = calc_accuracy(np.array(y_validation, dtype=np.int32),
                             np.array(predictions, dtype=np.int32))
