@@ -21,12 +21,14 @@ def main():
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs_enzymes')
 
-    wl_k = 3 #for WL algorithm
+    wl_k = 1 #for WL algorithm
 
-    #weights = list(itertools.product([0,0.1,0.2,0.3], repeat=3))
-    weights = [[1/2,1/4,1/8],[1/4,1/8,1/16],[1/8,1/16,1/32],[1/2,1/4,1/4],[2/3,1/6,1/6],[1/3,1/3,1/3],[1/3,1/3,1/31],]
+    weights = list(itertools.product([0,0.1,0.2,0.3], repeat=3))
+    add_weights = [[1/8,0,0],[1/4,1/8,1/16],[1/8,1/16,1/32],[1/2,1/4,1/4],[2/3,1/6,1/6],[1/3,1/3,1/3],[1/3,1/3,1/31]]
+    for weight in add_weights:
+        weights.append(weight)
+
     for weight in weights:
-        print(f'weights: {weight}')
         coordinator = CoordinatorVectorClassifier('enzymes',
                                         (1., 1., 1., 1., 'euclidean',wl_k,[weight[0],weight[1],weight[2]]),
                                         FOLDER_DATA,None,True,False)
@@ -45,7 +47,7 @@ def main():
         acc = calc_accuracy(np.array(y_validation, dtype=np.int32),
                             np.array(predictions, dtype=np.int32))
 
-        message = f'Best acc on Test : {acc:.2f}, time: {prediction_time:.2f}s\n'
+        message = f'Weights and best acc on val : {weight}:{acc:.2f}, time: {prediction_time:.2f}s\n'
 
         print(message)
 
