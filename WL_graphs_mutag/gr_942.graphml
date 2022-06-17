@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d1" for="node" attr.name="hashes" attr.type="string" />
+  <key id="d0" for="node" attr.name="x" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="0">
+      <data key="d0">[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '7e19d5c5b26f93fc', '85140b9dbbef85e5', 'faf1f70940ad5050']</data>
+    </node>
+    <node id="1">
+      <data key="d0">[0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '8be00faed9e47847', '08cdcf350ab7388d', 'c3e0bb6b6748c4f9']</data>
+    </node>
+    <node id="2">
+      <data key="d0">[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '4356219ee893e0f6', '30b6fcb8b28a1c07', 'f02b88af936712f4']</data>
+    </node>
+    <node id="3">
+      <data key="d0">[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '4356219ee893e0f6', '30b6fcb8b28a1c07', 'f02b88af936712f4']</data>
+    </node>
+    <node id="4">
+      <data key="d0">[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', 'a93b64973cfc8897', '2324857f36ee4f76', '3692aae4d81e416a']</data>
+    </node>
+    <node id="5">
+      <data key="d0">[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', 'a93b64973cfc8897', '2324857f36ee4f76', '3692aae4d81e416a']</data>
+    </node>
+    <node id="6">
+      <data key="d0">[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '5110adc459f44b27', '283bcb04094d78e0', '2e72f08498a1dc35']</data>
+    </node>
+    <node id="7">
+      <data key="d0">[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '5110adc459f44b27', 'acc762abadd9e5a2', '116fe26e36e638b6']</data>
+    </node>
+    <node id="8">
+      <data key="d0">[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '5110adc459f44b27', 'acc762abadd9e5a2', '116fe26e36e638b6']</data>
+    </node>
+    <node id="9">
+      <data key="d0">[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '5110adc459f44b27', 'acc762abadd9e5a2', '116fe26e36e638b6']</data>
+    </node>
+    <node id="10">
+      <data key="d0">[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '5110adc459f44b27', 'acc762abadd9e5a2', '116fe26e36e638b6']</data>
+    </node>
+    <node id="11">
+      <data key="d0">[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '5110adc459f44b27', 'acc762abadd9e5a2', '116fe26e36e638b6']</data>
+    </node>
+    <node id="12">
+      <data key="d0">[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</data>
+      <data key="d1">['[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]', '5110adc459f44b27', 'acc762abadd9e5a2', '116fe26e36e638b6']</data>
+    </node>
+    <edge source="0" target="1" />
+    <edge source="0" target="2" />
+    <edge source="0" target="3" />
+    <edge source="0" target="6" />
+    <edge source="1" target="4" />
+    <edge source="1" target="5" />
+    <edge source="2" target="7" />
+    <edge source="2" target="8" />
+    <edge source="2" target="9" />
+    <edge source="3" target="10" />
+    <edge source="3" target="11" />
+    <edge source="3" target="12" />
+  </graph>
+</graphml>

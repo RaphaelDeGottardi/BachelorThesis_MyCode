@@ -15,8 +15,8 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 def main():
 
-    k = 10                       # Nr of iterations (WL-Algorithm)
-    nr_of_graphs = 600          
+    k = 3                       # Nr of iterations (WL-Algorithm)
+    nr_of_graphs = 4337          
 
     #remember to re-include the train test and val list files when having deleted it
     delete_old_graphs = False
@@ -27,13 +27,17 @@ def main():
         except OSError as e:
             True 
 
+    try:
+        os.mkdir(f'./MyCode/WL_graphs_mutag') 
+    except OSError as e:
+        True
 
     #Loading the vectors and calculating their hash-values        
     for grX in range(nr_of_graphs):  
         
         print(f'graph nr. {grX} has been created')
 
-        graph = nx.read_graphml(f'./Enzymes/data/gr_{str(grX)}.graphml')
+        graph = nx.read_graphml(f'./mutagenicity/1651/gr_{str(grX)}.graphml')
         graph_hashes_list = nx.weisfeiler_lehman_subgraph_hashes(graph,
                                                                 iterations=k,
                                                                 digest_size=8)
@@ -45,7 +49,7 @@ def main():
     
         nx.write_graphml(
             graph, 
-            f'./MyCode/WL_graphs_enzymes/gr_{str(grX)}.graphml')
+            f'./MyCode/WL_graphs_mutag/gr_{str(grX)}.graphml')
 
 
 if __name__ == "__main__":
