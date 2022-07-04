@@ -19,7 +19,7 @@ def main():
     #Loading the Graphs
 
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
-                           'WL_graphs_dd')
+                           'WL_graphs_exp')
 
     wl_k = 3 #for WL algorithm
 
