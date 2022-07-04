@@ -27,9 +27,10 @@ def main():
     add_weights = [[0,0,0.2],[1/4,1/8,1/16],[1/8,1/16,1/32],[1/2,1/4,1/4],[2/3,1/6,1/6],[1/3,1/3,1/3],[1/3,1/3,1/31]]
     for weight in add_weights:
         weights.append(weight)
+    print("created weights")
 
     for weight in weights:
-        coordinator = CoordinatorVectorClassifier('dd',
+        coordinator = CoordinatorVectorClassifier('enzymes',
                                         (1., 1., 1., 1., 'euclidean',wl_k,[weight[0],weight[1],weight[2]]),
                                         FOLDER_DATA,None,True,False)
 
@@ -37,10 +38,10 @@ def main():
         X_train, y_train = getattr(coordinator, 'train_split')()
         #X_test, y_test = getattr(coordinator, 'test_split')()
         X_validation, y_validation = getattr(coordinator, 'val_split')()
-        
+        print("start training")
         knn = KNNClassifier(coordinator.ged, True, verbose=False)
         knn.train(graphs_train=X_train, labels_train=y_train)
-
+        print("start predicitons")
         start_time = time()
         predictions = knn.predict(X_validation, k=3, num_cores=8)
         prediction_time = time() - start_time
