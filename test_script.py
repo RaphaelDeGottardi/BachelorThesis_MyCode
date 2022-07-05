@@ -15,6 +15,32 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 
 def main():
-    print("this works")
+
+    #Loading the Graphs
+
+    FOLDER_DATA = os.path.join(os.path.dirname(__file__),
+                           'WL_graphs_enzymes')
+
+    wl_k = 3 #for WL algorithm
+
+    weights = [] #list(itertools.product([0,0.1,0.2,0.3], repeat=3))
+    add_weights = [[0,0,0.2],[1/4,1/8,1/16],[1/8,1/16,1/32],[1/2,1/4,1/4],[2/3,1/6,1/6],[1/3,1/3,1/3],[1/3,1/3,1/31]]
+    for weight in add_weights:
+        weights.append(weight)
+    print("created weights")
+
+    for weight in weights:
+        coordinator = CoordinatorVectorClassifier('enzymes',
+                                        (1., 1., 1., 1., 'euclidean',wl_k,[weight[0],weight[1],weight[2]]),
+                                        FOLDER_DATA,None,True,False)
+
+    
+        X_train, y_train = getattr(coordinator, 'train_split')()
+        #X_test, y_test = getattr(coordinator, 'test_split')()
+        X_validation, y_validation = getattr(coordinator, 'val_split')()
+        print("start training")
+        knn = KNNClassifier(coordinator.ged, True, verbose=False)
+        knn.train(graphs_train=X_train, labels_train=y_train)
+        print("start predicitons")
 if __name__ == "__main__":
     main()
