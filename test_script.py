@@ -12,6 +12,9 @@ import itertools
 from graph_pkg_core.coordinator.coordinator_vector_classifier import CoordinatorVectorClassifier
 from graph_pkg_core.algorithm.knn import KNNClassifier
 from graph_pkg_core.utils.functions.helper import calc_accuracy
+from graph_pkg_core.algorithm.graph_edit_distance import GED
+from graph_pkg_core.edit_cost.edit_cost_vector import EditCostVector
+from graph_pkg_core.loader.loader_vector import LoaderVector
 
 
 def main():
@@ -20,19 +23,24 @@ def main():
     print("milestone1")
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs_enzymes')
+    k = 2                   # Nr of iterations (WL-Algorithm)
+    nr_of_graphs = 6            # from Enzymes dataset max 
 
-    wl_k = 3 #for WL algorithm
+    #Loading the Graphs
 
-    weights = [] #list(itertools.product([0,0.1,0.2,0.3], repeat=3))
-    add_weights = [[0,0,0.2],[1/4,1/8,1/16],[1/8,1/16,1/32],[1/2,1/4,1/4],[2/3,1/6,1/6],[1/3,1/3,1/3],[1/3,1/3,1/31]]
-    for weight in add_weights:
-        weights.append(weight)
-    print("created weights")
+    graph_list = []
 
-    coordinator = CoordinatorVectorClassifier('enzymes',
-                                    (1., 1., 1., 1., 'euclidean',wl_k,[1/2,1/2,1/2]),
-                                    FOLDER_DATA,None,True,False)
+    loader_vector = LoaderVector(f'./MyCode/WL_graphs_enzymes', use_wl_attr = True)    
+    WL_graph_list = loader_vector.load()
 
+
+    X = 0
+    Y = 1
+
+    ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = k, weights = [1/2,1/3]))
+
+    cost = ged_WL.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
+    print(f'ged with WL: {cost}') 
 
 if __name__ == "__main__":
     main()
