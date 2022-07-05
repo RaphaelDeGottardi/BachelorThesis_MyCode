@@ -29,10 +29,10 @@ def main():
         weights.append(weight)
     print("created weights")
 
+    coordinator = CoordinatorVectorClassifier('enzymes',
+                                    (1., 1., 1., 1., 'euclidean',wl_k,[1/2,1/2,1/2]),
+                                    FOLDER_DATA,None,True,False)
 
-    for weight in weights:
-        print("milestone2")
 
-        
 if __name__ == "__main__":
     main()
