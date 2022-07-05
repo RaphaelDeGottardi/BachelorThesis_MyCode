@@ -17,7 +17,7 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 def main():
 
     #Loading the Graphs
-
+    print("milestone1")
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs_enzymes')
 
@@ -29,18 +29,5 @@ def main():
         weights.append(weight)
     print("created weights")
 
-    for weight in weights:
-        coordinator = CoordinatorVectorClassifier('enzymes',
-                                        (1., 1., 1., 1., 'euclidean',wl_k,[weight[0],weight[1],weight[2]]),
-                                        FOLDER_DATA,None,True,False)
-
-    
-        X_train, y_train = getattr(coordinator, 'train_split')()
-        #X_test, y_test = getattr(coordinator, 'test_split')()
-        X_validation, y_validation = getattr(coordinator, 'val_split')()
-        print("start training")
-        knn = KNNClassifier(coordinator.ged, True, verbose=False)
-        knn.train(graphs_train=X_train, labels_train=y_train)
-        print("start predicitons")
 if __name__ == "__main__":
     main()
