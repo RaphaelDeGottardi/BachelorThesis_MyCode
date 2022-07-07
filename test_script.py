@@ -30,7 +30,7 @@ def main():
 
     graph_list = []
 
-    loader_vector = LoaderVector(f'./MyCode/WL_graphs_enzymes', use_wl_attr = True)    
+    loader_vector = LoaderVector(f'./WL_graphs_enzymes', use_wl_attr = True)    
     WL_graph_list = loader_vector.load()
 
 
