@@ -49,7 +49,7 @@ def main():
                             np.array(predictions, dtype=np.int32))
 
         message = f'Weights and best acc on val : {weight}:{acc:.2f}, time: {prediction_time:.2f}s\n'
-
+        
         print(message)
 
 if __name__ == "__main__":

@@ -15,17 +15,13 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 def main():
 
-    k = 3                       # Nr of iterations (WL-Algorithm)
+    k = 10                       # Nr of iterations (WL-Algorithm)
     nr_of_graphs = 4337          
 
     #remember to re-include the train test and val list files when having deleted it
     delete_old_graphs = False
     if delete_old_graphs:
-        shutil.rmtree(r'./MyCode/WL_graphs_enzymes')
-        try:
-            os.mkdir(f'./MyCode/WL_graphs_enzymes') 
-        except OSError as e:
-            True 
+        shutil.rmtree(r'./MyCode/WL_graphs_mutag')
 
     try:
         os.mkdir(f'./MyCode/WL_graphs_mutag') 
