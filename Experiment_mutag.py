@@ -26,7 +26,7 @@ def main():
     wl_k = 3 #for WL algorithm
 
     weights = [] #list(itertools.product([0,0.1,0.2,0.3], repeat=3))
-    add_weights = [[0,0,0],[0,0,0.2],[1/8,0,0],[1/16,0,0],[1/16,1/16,0]]
+    add_weights = [[1/24,1/24,1/24],[0,0,1/8],[1/8,0,0],[1/16,0,0],[1/16,1/16,0]]
     for weight in add_weights:
         weights.append(weight)
     print("created weights")
