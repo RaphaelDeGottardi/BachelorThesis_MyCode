@@ -19,27 +19,35 @@ from graph_pkg_core.loader.loader_vector import LoaderVector
 
 def main():
 
-    k = 2                   # Nr of iterations (WL-Algorithm)
-    nr_of_graphs = 6            # from Enzymes dataset max 
 
-    #Loading the Graphs
-
-    graph_list = []
-
-    loader_vector = LoaderVector(f'./MyCode/WL_graphs_mutag', use_wl_attr = True)    
+    loader_vector = LoaderVector(f'./MyCode/WL_graphs_dd', use_wl_attr = True)    
     WL_graph_list = loader_vector.load()
 
 
     X = 0
     Y = 1
 
-    ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = k, weights = [1/2,1/3]))
+    ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = 0))
 
     cost = ged_WL.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
 
-    a = ged_WL.C
-    print(a.base)
+    C_orig = ged_WL.C.base
 
+    ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = 2, weights = [1/2,1/3]))
+
+    cost = ged_WL.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
+
+
+    C_wl = ged_WL.C.base
+
+    C_diff = C_wl - C_orig
+
+    np.savetxt("C_matrix_orig.csv",C_orig , 
+              delimiter = ",")
+    np.savetxt("C_matrix_wl.csv",C_wl , 
+              delimiter = ",")
+    np.savetxt("C_matrix_diff.csv",C_diff , 
+              delimiter = ",")
     print(f'ged with WL: {cost}') 
 
 

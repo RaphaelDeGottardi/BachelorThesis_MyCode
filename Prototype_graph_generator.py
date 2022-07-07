@@ -16,15 +16,15 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 def main():
 
     k = 10                       # Nr of iterations (WL-Algorithm)
-    nr_of_graphs = 4337          
+    nr_of_graphs = 1178          
 
     #remember to re-include the train test and val list files when having deleted it
     delete_old_graphs = False
     if delete_old_graphs:
-        shutil.rmtree(r'./MyCode/WL_graphs_mutag')
+        shutil.rmtree(r'./MyCode/WL_graphs_dd')
 
     try:
-        os.mkdir(f'./MyCode/WL_graphs_mutag') 
+        os.mkdir(f'./MyCode/WL_graphs_dd') 
     except OSError as e:
         True
 
@@ -33,7 +33,7 @@ def main():
         
         print(f'graph nr. {grX} has been created')
 
-        graph = nx.read_graphml(f'./mutagenicity/1651/gr_{str(grX)}.graphml')
+        graph = nx.read_graphml(f'./dd/1651/gr_{str(grX)}.graphml')
         graph_hashes_list = nx.weisfeiler_lehman_subgraph_hashes(graph,
                                                                 iterations=k,
                                                                 digest_size=8)
@@ -45,7 +45,7 @@ def main():
     
         nx.write_graphml(
             graph, 
-            f'./MyCode/WL_graphs_mutag/gr_{str(grX)}.graphml')
+            f'./MyCode/WL_graphs_dd/gr_{str(grX)}.graphml')
 
 
 if __name__ == "__main__":
