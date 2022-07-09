@@ -18,7 +18,7 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 def main():
 
     #Loading the Graphs
-    print('this file contains the weight analysis for the mutag dataset (k-NN classification with k=1)')
+    print('this file contains the weight analysis for the mutag dataset (k-NN classification with k=3)')
 
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs_mutag')
@@ -45,7 +45,7 @@ def main():
         knn.train(graphs_train=X_train, labels_train=y_train)
         print("start predicitons")
         start_time = time()
-        predictions = knn.predict(X_validation, k=1, num_cores=8)
+        predictions = knn.predict(X_validation, k=3, num_cores=8)
         prediction_time = time() - start_time
         acc = calc_accuracy(np.array(y_validation, dtype=np.int32),
                             np.array(predictions, dtype=np.int32))
