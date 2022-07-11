@@ -4,6 +4,7 @@ from time import time
 import os
 import numpy as np
 import networkx as nx
+import psutil
 import shutil
 import itertools
 
@@ -20,6 +21,8 @@ def main():
     #Loading the Graphs
     print('this file contains the weight analysis for the mutag dataset (k-NN classification with k=3)')
 
+
+    print(f'nr of cpus: {psutil.cpu_count()}')
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
                            'WL_graphs_mutag')
 

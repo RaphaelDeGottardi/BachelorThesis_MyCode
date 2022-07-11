@@ -45,9 +45,9 @@ def main():
 
         print("start predicitons")
         start_time = time()
-        predictions = knn.predict(X_test, k=3, num_cores=8)
+        predictions = knn.predict(X_validation, k=1, num_cores=8)
         prediction_time = time() - start_time
-        acc = calc_accuracy(np.array(y_test, dtype=np.int32),
+        acc = calc_accuracy(np.array(y_validation, dtype=np.int32),
                             np.array(predictions, dtype=np.int32))
 
         message = f'Weights and best acc on test: {weight}:{acc:.2f}, time: {prediction_time:.2f}s\n'
