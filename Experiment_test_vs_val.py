@@ -19,7 +19,7 @@ def main():
     #Loading the Graphs
 
     FOLDER_DATA = os.path.join(os.path.dirname(__file__),
-                           'WL_graphs_enzymes')
+                           'WL_graphs_enzymes/1651')
 
     wl_k = 3 #for WL algorithm
 

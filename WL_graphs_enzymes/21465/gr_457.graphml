@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d1" for="node" attr.name="hashes" attr.type="string" />
+  <key id="d0" for="node" attr.name="x" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="0">
+      <data key="d0">[1.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0]', '96d3b2297f765206', '7b66fee07fa688c1', '77b635273acdea7c', '043f8a42a08e660d', '9746430915806a47', 'b63488bacc2246f1', 'ba613f118461f937', 'fe115cc8bc244d65', '8c6e15cf952a1faf', '4df795b3ac9311dd']</data>
+    </node>
+    <node id="1">
+      <data key="d0">[1.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0]', 'a91fbf07d4760bc0', '340f4a08f6ecf754', '026d6ede28cbe098', 'd896a5350cdbaf25', '4cdf14328df7d541', '4dbb7a18da3ee3a8', '8e3cca4b9ebc997d', '874c85adc89df00c', '4266e4e06b31bb7e', 'dfe4b5855b5f2043']</data>
+    </node>
+    <node id="2">
+      <data key="d0">[1.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0]', '1e9312263a6ec722', '97debdc02d428e8e', '5bb08f3d50637b97', 'edbb9f2f4c1aa553', 'e6f0e35aa3a1db2b', '4b73a18c07fcc369', '4009de8177a65513', 'e965288838361e6b', '0c57e297fedd3162', 'f5e4218a78157eb1']</data>
+    </node>
+    <node id="3">
+      <data key="d0">[1.0, 0.0, 0.0]</data>
+      <data key="d1">['[1.0, 0.0, 0.0]', '33da840951d15526', 'b363c9554a89a556', 'd477f66b858f5300', 'd1a4c56e275a5f28', '07e74ebf10341a40', '1e6a241b9d6f1a60', '5b511dade5b93eb7', 'e5f6a303316d5109', '35f2b0ad02304a1f', '952f40655f22e299']</data>
+    </node>
+    <node id="4">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', 'fb11b9a4a2924afe', '03211941989f7ff8', '32cb04fa30f967ee', 'eadb90e2f2cdc603', '71fd2e31bfaea65a', 'e9981d62d4cc5c97', 'a088ce42ef6109ca', '06d3f30290221b23', 'e9d3d00f9b5e77f8', '44db91172d22b42e']</data>
+    </node>
+    <node id="5">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', 'd8d8b2e7a019fc0f', '24081fd12e04b145', 'e0e2fc22c0f9219c', '125f62d3927e352f', '6f2bbc630427bd19', '06a17c84660d16c6', 'e99272df032ec36a', '8ddce7d71e4f3b9c', '8109a2bb25dd4875', 'e72cd18b464c677d']</data>
+    </node>
+    <node id="6">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '429b6cfc1ae44f8f', '3b78269f4333b331', '1388f8576f597350', '138950d24a398441', 'e59b1ab9b54ad97b', 'e0396381343c6183', '9a683e10cfd9dc13', 'e0a0c573e0a7c8e7', '1153902ea158baf7', '395c55239e983c83']</data>
+    </node>
+    <node id="7">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '3e3c492324b37d9a', '5ea2dfda5891d9a2', '51c3d9093a739756', '61d506bbb2e45470', '7c67674d898c6872', '5c737ac91cd6bf80', '088e6e52b6c3b5fa', '8dae27da57f593fb', 'de16501baa8d8030', 'f4409457f855a7c4']</data>
+    </node>
+    <node id="8">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '177cb265251c6789', '8595ac243ddf942b', '4d3a1219cd99b89b', 'd731b84a21fe36c8', 'd6b622b104fc84a4', '4ff4be2f27af54d6', '5602a0649d1c0578', 'e92e3eb5659e4cd3', 'c60501b7cc93d4e9', 'c22c7aac210b97d1']</data>
+    </node>
+    <node id="9">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', 'b2e4ac9a8a6219c1', '4cc15e875590df42', 'ce0f4fb1ffe0cb5a', 'd9a9e1183549c13a', 'd70804936ebaa4e6', '18c6e10b9a87f5c0', '489d114e128c37c7', '74facaad94ea4d51', '9ef680b5d600a38f', '06b5365e342734b3']</data>
+    </node>
+    <node id="10">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', 'd8d8b2e7a019fc0f', '24081fd12e04b145', 'e0e2fc22c0f9219c', '125f62d3927e352f', '6f2bbc630427bd19', '06a17c84660d16c6', 'e99272df032ec36a', '8ddce7d71e4f3b9c', '8109a2bb25dd4875', 'e72cd18b464c677d']</data>
+    </node>
+    <node id="11">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '429b6cfc1ae44f8f', '3b78269f4333b331', '1388f8576f597350', '138950d24a398441', 'e59b1ab9b54ad97b', 'e0396381343c6183', '9a683e10cfd9dc13', 'e0a0c573e0a7c8e7', '1153902ea158baf7', '395c55239e983c83']</data>
+    </node>
+    <node id="12">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '3e3c492324b37d9a', '5ea2dfda5891d9a2', '51c3d9093a739756', '61d506bbb2e45470', '7c67674d898c6872', '5c737ac91cd6bf80', '088e6e52b6c3b5fa', '8dae27da57f593fb', 'de16501baa8d8030', 'f4409457f855a7c4']</data>
+    </node>
+    <node id="13">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '63fcbc98e0332b3b', '8a97a3c251113cfa', 'f33cfaa966c7a713', '05beb74191942ec4', '772e3bae44158c2a', '7eeee5c7c66c3f33', '84a50d8c5abaa135', 'c7fa4e2b0d5e520c', 'c173ea3a106d28ad', '788beb834091bcce']</data>
+    </node>
+    <node id="14">
+      <data key="d0">[0.0, 1.0, 0.0]</data>
+      <data key="d1">['[0.0, 1.0, 0.0]', '9cb12f54ba64431c', '40f5defa61a03414', 'ede70ccde44e5d32', 'ad0f96aca389dc5e', 'aad3fa4d3094e61c', '79a552fc0632851d', '349ace5aaa5e14ef', 'debc633772f9cad5', '692e98941dc24859', '78713eed15cd681a']</data>
+    </node>
+    <edge source="0" target="1" />
+    <edge source="0" target="3" />
+    <edge source="1" target="2" />
+    <edge source="1" target="3" />
+    <edge source="1" target="4" />
+    <edge source="1" target="8" />
+    <edge source="2" target="3" />
+    <edge source="2" target="4" />
+    <edge source="2" target="9" />
+    <edge source="3" target="4" />
+    <edge source="3" target="9" />
+    <edge source="3" target="14" />
+    <edge source="4" target="14" />
+    <edge source="5" target="6" />
+    <edge source="5" target="11" />
+    <edge source="6" target="7" />
+    <edge source="6" target="10" />
+    <edge source="6" target="12" />
+    <edge source="7" target="8" />
+    <edge source="7" target="11" />
+    <edge source="7" target="13" />
+    <edge source="8" target="12" />
+    <edge source="8" target="13" />
+    <edge source="8" target="14" />
+    <edge source="9" target="14" />
+    <edge source="10" target="11" />
+    <edge source="11" target="12" />
+    <edge source="12" target="13" />
+    <edge source="13" target="14" />
+  </graph>
+</graphml>
