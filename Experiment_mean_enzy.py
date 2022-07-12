@@ -16,7 +16,7 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 
 def main():
    #Loading the Graphs
-    shufflelist = [1651,21465,227709,44332,53628,54292,56261,60278,77558,80822]
+    shufflelist = [1651,21465,27709,44332,53628,54292,56261,60278,77558,80822]
     for kNN in [1,3]:
 
         for shuffle in shufflelist:
