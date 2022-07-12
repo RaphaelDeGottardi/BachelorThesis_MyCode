@@ -61,9 +61,9 @@ def main():
                 message = f'Best acc on test: {acc:.2f}, time: {prediction_time:.2f}s\n'
                 print(message)
             print(f'For the enzymes daaset, k = {kNN} and the weights: {weight} the mean is:')
-            np.mean(accuracies)
+            print(np.mean(accuracies))
             print('and the std is:')
-            np.std(accuracies)
+            print(np.std(accuracies))
             print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
 if __name__ == "__main__":
