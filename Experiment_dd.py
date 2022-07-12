@@ -9,6 +9,11 @@ import itertools
 
 #prototype to test the kNN classification aughmented with the WL-hashes
 
+#COMMENT
+#DD takes too long (and too much memory) to compute so we only made some small experiments to figure this out
+#focus for this thesis lies on the enzymes and mutag datasets
+
+
 from graph_pkg_core.coordinator.coordinator_vector_classifier import CoordinatorVectorClassifier
 from graph_pkg_core.algorithm.knn import KNNClassifier
 from graph_pkg_core.utils.functions.helper import calc_accuracy
