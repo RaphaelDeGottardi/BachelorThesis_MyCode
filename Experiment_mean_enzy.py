@@ -54,7 +54,7 @@ def main():
             acc = calc_accuracy(np.array(y_test, dtype=np.int32),
                                 np.array(predictions, dtype=np.int32))
 
-            message = 'Best acc on test: {acc:.2f}, time: {prediction_time:.2f}s\n'
+            message = f'Best acc on test: {acc:.2f}, time: {prediction_time:.2f}s\n'
             print(message)
 
 if __name__ == "__main__":
