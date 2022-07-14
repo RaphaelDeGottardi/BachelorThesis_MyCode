@@ -17,7 +17,7 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 def main():
    #Loading the Graphs
     shufflelist = [1651,21465,27709,44332,53628,54292,56261,60278,77558,80822]
-    weights = [[1/8,0,0],[0,0,0.2],[0.1,0.1,0.1],[0.125,0,0],[0,0,0]]
+    weights = [[1,1,1],[1,0,0],[0,1,0],[0,0,1],[0,0,2]]
     for w in list(itertools.product([0,0.1,0.2,0.3], repeat=3)):
         weights.append(w)
     
