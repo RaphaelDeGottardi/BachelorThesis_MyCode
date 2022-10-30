@@ -1,6 +1,9 @@
 from itertools import combinations
 from time import time
 
+
+# importing the required modules
+import matplotlib.pyplot as plt
 import os
 import numpy as np
 import networkx as nx
@@ -21,53 +24,70 @@ from graph_pkg_core.loader.loader_vector import LoaderVector
 def main():
 
 
-    loader_vector = LoaderVector(f'./MyCode/WL_graphs_enzymes', use_wl_attr = True)    
+    loader_vector = LoaderVector(f'./MyCode/WL_graphs_enzymes/1651', use_wl_attr = True)    
     WL_graph_list = loader_vector.load()
 
 
-
+    print('this experiment documents the zero reduction for enzymes and a ged with weights (1/2,0,0)')
 
     ged_orig = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = 0))
-    ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = 2, weights = [1/2,1/3]))
+    ged_WL = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = 2, weights = [1/2,0]))
+    ged_WL2 = GED(EditCostVector(1., 1., 1., 1., 'euclidean', wl_k = 2, weights = [1/2,1/2]))
 
-    # for i in range(20):
-    X = 11 #rd.randint(0,len(WL_graph_list))
-    Y = 56 #rd.randint(0,len(WL_graph_list))
-    print(f'the graphs X: {X} and Y: {Y} were chosen from the enzymes dataset')
+    zerocount = []
 
-    cost_orig = ged_orig.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
-    C_orig = ged_orig.C.base
+    for i in range(1):
+        X = rd.randint(0,len(WL_graph_list)-1)
+        Y = rd.randint(0,len(WL_graph_list)-1)
+        print(f'the graphs X: {X} and Y: {Y} were chosen from the enzymes dataset')
 
-    Zcount_orig = 0
-    for line in C_orig:
-        for element in line:
-            if element == 0:
-                Zcount_orig = Zcount_orig + 1
-    print(f' Zeroes in original C_matrix: {Zcount_orig}')
+        cost_orig = ged_orig.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
+        C_orig = ged_orig.C.base
+
+        Zcount_orig = 0
+        for y in range(len(WL_graph_list[Y].nodes)):
+            for x in range(len(WL_graph_list[X].nodes)):
+                if C_orig[x][y] == 0:
+                    Zcount_orig = Zcount_orig + 1
 
 
-    cost = ged_WL.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
+        cost = ged_WL.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
 
-    C_wl = ged_WL.C.base
+        C_wl = ged_WL.C.base
+        Zcount_wl = 0
 
-    Zcount_wl = 0
+        for y in range(len(WL_graph_list[Y].nodes)):
+            for x in range(len(WL_graph_list[X].nodes)):
+                if C_wl[x][y] == 0:
+                    Zcount_wl = Zcount_wl + 1
 
-    for line in C_wl:
-        for element in line:
-            if element == 0:
-                Zcount_wl = Zcount_wl + 1
-    print(f' Zeroes in wl C_matrix: {Zcount_wl}')
+        zerocount.append(Zcount_wl/Zcount_orig)
 
-    print(f'the difference in nr of zeroes is: {Zcount_orig-Zcount_wl}')
+        
+        cost = ged_WL2.compute_edit_distance(WL_graph_list[X],WL_graph_list[Y], heuristic=True)
 
-    C_diff = C_wl - C_orig
+        C_wl2 = ged_WL2.C.base
+    print('this is the vector including the nr of zeros:')
+    print(zerocount)
+    print(f'mean:{np.mean(zerocount)}')
+    print(f'stabw:{np.std(zerocount)}')
+    
 
-    np.savetxt("C_matrix_orig_toyexp.csv",C_orig , 
-              delimiter = ",")
-    np.savetxt("C_matrix_wl_toyexp.csv",C_wl , 
-              delimiter = ",")
-    np.savetxt("C_matrix_diff_toyexp.csv",C_diff , 
-              delimiter = ",")
+    # np.savetxt("C_matrix_orig_toyexp.csv",C_orig , 
+    #           delimiter = ",")
+    # np.savetxt("C_matrix_wl_toyexp.csv",C_wl , 
+    #           delimiter = ",")
+
+    plt.matshow(C_orig, cmap='Greys')
+    plt.title('Original')
+    plt.colorbar()
+    plt.matshow(C_wl, cmap='Greys')
+    plt.title('o + h(1)')
+    plt.colorbar()    
+    plt.matshow(C_wl2, cmap='Greys')
+    plt.title('o + h(1) + h(2)')
+    plt.colorbar()
+    plt.show()
     print(f'ged with WL: {cost}') 
 
 

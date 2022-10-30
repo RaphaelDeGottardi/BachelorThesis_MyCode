@@ -17,12 +17,13 @@ from graph_pkg_core.utils.functions.helper import calc_accuracy
 def main():
    #Loading the Graphs
     shufflelist = [1651,21465,27709,44332,53628,54292,56261,60278,77558,80822]
-    weights = [[1,1,1],[1,0,0],[0,1,0],[0,0,1],[0,0,2]]
-    for w in list(itertools.product([0,0.1,0.2,0.3], repeat=3)):
-        weights.append(w)
+    #weights = [[1,1,1],[1,0,0],[0,1,0],[0,0,1],[0,0,2]]
+    weights = [[0,0,0]]
+    #for w in list(itertools.product([0,0.1,0.2,0.3], repeat=3)):
+    #    weights.append(w)
     
     for weight in weights:
-        for kNN in [1,3]:
+        for kNN in [5,7,9]:
             accuracies = []
 
             for shuffle in shufflelist:
@@ -53,7 +54,7 @@ def main():
                                     np.array(predictions, dtype=np.int32))    
                 accuracies.append(acc)
                 message = f'Best acc on val: {acc:.2f}, time: {prediction_time:.2f}s\n'
-                #print(message)  
+                print(message)  
 
                 start_time = time()
                 predictions = knn.predict(X_test, k=kNN, num_cores=8)
@@ -62,7 +63,7 @@ def main():
                                     np.array(predictions, dtype=np.int32))
                 accuracies.append(acc)
                 message = f'Best acc on test: {acc:.2f}, time: {prediction_time:.2f}s\n'
-                #print(message)
+                print(message)
             print(f'For the enzymes dataset, k = {kNN} and the weights: {weight} the mean is:')
             print(np.mean(accuracies))
             print('and the std is:')
